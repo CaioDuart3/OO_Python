@@ -7,12 +7,12 @@ def workspace():
     b = float(input("digite o valor do lado b: "))
     c = float(input("digite o valor do lado c: "))
 
-    obj_es = TriangIsosceles(a,b,c)
+    obj_is = TriangIsosceles(a,b,c)
     
-    area = obj_es.area()
-    altura = obj_es._altura()
-    perimetro = obj_es.perimetro() #é impresso através de herança
-    type
+    area = obj_is.area()
+    altura = obj_is.altura()
+    perimetro = obj_is.perimetro() #é impresso através de herança
+    obj_is.angulosInternos()
     print(f'area: {area}')
     print(f'altura: {altura}')
     print(f'perimetro: {perimetro}')

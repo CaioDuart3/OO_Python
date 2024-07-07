@@ -11,7 +11,7 @@ def workspace():
     
     obj_es.angulosInternos()
     area = obj_es.area()
-    altura = obj_es._altura() # note que está imprimindo um método protegido.
+    altura = obj_es.altura() # note que está imprimindo um método protegido.
     perimetro = obj_es.perimetro()
 
     print(f'area: {area}')

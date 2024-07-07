@@ -1,6 +1,6 @@
 from package.maths.terms import Reta
 def workspace():
-    n = float(input("digite a qtd de pontos na reta: "))
+    n = int(input("digite a qtd de pontos na reta: "))
 
     obj_Reta = Reta(n) #instanciação
     m = obj_Reta.inclinacao() #
@@ -9,11 +9,11 @@ def workspace():
     print(f"m: {m}")
     print(f"b: {b}")
 
-    i = float(input("quantidade de iterações:"))
+    i = int(input("quantidade de iterações:"))
     obj_Reta.montarTabela(m,b,i)
     
     y = obj_Reta.interpolar(m,b,i)
-    print(y)
+    print(f'interpolar, y = {y}')
 
 
 if __name__ == "__main__":
