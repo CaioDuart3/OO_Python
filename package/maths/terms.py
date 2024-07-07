@@ -1,6 +1,4 @@
 
-# ! TRATAR ENTRADAS DE DADOS FORA DA TIPAGEM ESPERADA, E PASSAR TUDO PRA FLOAT
-
 class Ponto:
     def __init__(self,n):
         self.n = n
@@ -171,7 +169,7 @@ class TriangEquilatero: #triangulo Triangulo_Equilatero
         else:
             return "as entradas não são válidas aqui."
 
-    def perimetro(self):
+    def perimetro(self): # será utilizado no isosceles através de herança.
         verificarTriang = self._verificarTriangulo()
         verificarLados = self._verificarLados()
         if verificarTriang == True and verificarLados == True:
@@ -183,7 +181,6 @@ class TriangEquilatero: #triangulo Triangulo_Equilatero
 class TriangIsosceles(TriangEquilatero): #filho(mae) #herança, primeiro filho
     # dois lados iguais
 
-    # ! CORRRIGIR CASO DE TESTE COM ENTRADAS IGUAIS A=1,B=1,C=1
     def __init__(self,a,b,c):
         super().__init__(a,b,c)
 
