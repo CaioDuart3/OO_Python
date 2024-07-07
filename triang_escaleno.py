@@ -1,23 +1,23 @@
-from package.maths.terms import TriangIsosceles
+from package.maths.terms import TriangEscaleno
 
 def workspace():
-    print('rodando triangulo isosceles...\n')
+    print('rodando triangulo escaleno...\n')
 
     a = float(input("digite o valor do lado a: "))
     b = float(input("digite o valor do lado b: "))
     c = float(input("digite o valor do lado c: "))
 
-    obj_es = TriangIsosceles(a,b,c)
+    obj_es = TriangEscaleno(a,b,c)
     
+    obj_es.angulosInternos()
     area = obj_es.area()
-    altura = obj_es._altura()
-    perimetro = obj_es.perimetro() #é impresso através de herança
-    type
+    altura = obj_es._altura() # note que está imprimindo um método protegido.
+    perimetro = obj_es.perimetro()
+
     print(f'area: {area}')
     print(f'altura: {altura}')
     print(f'perimetro: {perimetro}')
 
-workspace()
 
 if __name__ == "__main__":
 

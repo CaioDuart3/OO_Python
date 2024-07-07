@@ -14,7 +14,7 @@ def workspace():
     
     y = obj_Reta.interpolar(m,b,i)
     print(y)
-workspace()
+
 
 if __name__ == "__main__":
 

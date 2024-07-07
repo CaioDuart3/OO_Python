@@ -13,8 +13,8 @@ class Ponto:
     def coordenada(self):
         coo_ponto = []
         for i in range(0,self.n):
-            X = int(input(f"digite a coordenada de X{i}: "))
-            Y = int(input(f"digite a coordenada de Y{i}: "))
+            X = float(input(f"digite a coordenada de X{i}: "))
+            Y = float(input(f"digite a coordenada de Y{i}: "))
             v=[]
             v.append(X)
             v.append(Y)
@@ -38,18 +38,18 @@ class Ponto:
     def setPontosY(self,p):
         self.p = p
         for i in range(0,self.n):
-            nY = int(input(f'digite o novo valor de Y{i}: '))
+            nY = float(input(f'digite o novo valor de Y{i}: '))
             p[i].pop()
             p[i].append(nY)
 
     def setPontosX(self,p):
         self.p = p
         for i in range(0,self.n):
-            nY = int(input(f'digite o novo valor de X{i}: '))
+            nY = float(input(f'digite o novo valor de X{i}: '))
             p[i].pop(0)
             p[i].insert(0,nY)
 
-    def retornarPonto(self, p,c): #c é o vetor das cores
+    def exibirPonto(self, p,c): #c é o vetor das cores
             # o vetor p, a ser recebido tem que ser um vetor de listas, com pontos x e y; vetores só de x ou só de y, não funcionam.
             num = int(input(f"dados os pontos: {p}\n digite a index do ponto que você quer consultar as informações: ")) 
             print(f"vetor solicitado: {p[num]}\ncor: {c[num]}")
@@ -117,8 +117,8 @@ class Circulo:
         return P
 
     def set(self):
-        self.x = int(input("digite o novo valor de X: "))
-        self.y = int(input("digite o novo valor de Y: "))
+        self.x = float(input("digite o novo valor de X: "))
+        self.y = float(input("digite o novo valor de Y: "))
 
 class TriangEquilatero: #triangulo Triangulo_Equilatero
     #todos lados iguais
@@ -407,4 +407,5 @@ class TrapezioRetangulo(TrapezioIsosceles): #herança
         lado = self.__lado()
         p = self.B + self.b + lado + self._h
         return p
+
 

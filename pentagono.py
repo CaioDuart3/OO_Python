@@ -10,8 +10,6 @@ def workspace():
     print(f'area {area}')
     print(f'perimetro: {perimetro}')
 
-workspace()
-
 if __name__ == "__main__":
 
     print("O arquivo 'testbench.py' foi envocado como programa")

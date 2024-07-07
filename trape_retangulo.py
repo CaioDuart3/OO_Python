@@ -14,7 +14,7 @@ def workspace():
     print(f"perimetro Tr: {p_Tr}")
     print(f"getTr: {getAlturaTr}")
 
-workspace()
+
 
 if __name__ == "__main__":
 

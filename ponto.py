@@ -1,7 +1,7 @@
 from package.maths.terms import Ponto
 
 def workspace():
-    n = float(input("digite a quantidade de pontos: "))
+    n = int(input("digite a quantidade de pontos: "))
     objPonto = Ponto(n)
 
     cor = objPonto.cor()
@@ -12,13 +12,13 @@ def workspace():
     objPonto.setPontosX(coo) 
     objPonto.setPontosY(coo) 
 
-    x = objPonto.retornarPontosX(coo)
-    y = objPonto.retornarPontosY(coo)
-    print(f'{x}')
-    print(f'{y}')
+    vetor_x = objPonto.retornarPontosX(coo)
+    vetor_y = objPonto.retornarPontosY(coo)
+    print(f'{vetor_x}')
+    print(f'{vetor_y}')
     print(f'novas coordenadas: {coo}')
 
-workspace()
+    objPonto.exibirPonto(coo,cor)
 
 if __name__ == "__main__":
 

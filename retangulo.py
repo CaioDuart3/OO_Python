@@ -8,7 +8,7 @@ def workspace():
     p = obj_r.perimetro()
     d = obj_r.diagonal()
     print(f"area: {a}\nperimetro: {p}\ndiagonal: {d}")
-workspace()
+
 
 if __name__ == "__main__":
 

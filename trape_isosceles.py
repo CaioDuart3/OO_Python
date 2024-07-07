@@ -13,7 +13,6 @@ def workspace():
     print(f'perimetro Ti: {p_Ti}')
     print(f"getTi: {getAlturaTi}")
 
-workspace()
 
 if __name__ == "__main__":
 

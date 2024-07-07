@@ -15,8 +15,6 @@ def workspace():
     get = objQuadrado.getLado()
     print(f'get: {get}') # encapsulamento de atríbuto.
 
-workspace()
-
 if __name__ == "__main__":
 
     print("O arquivo 'testbench.py' foi envocado como programa")

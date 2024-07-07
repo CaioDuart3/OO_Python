@@ -17,7 +17,7 @@ def workspace():
     print(f'altura: {altura}')
     print(f'perimetro: {perimetro}')
 
-workspace()
+
 
 if __name__ == "__main__":
 

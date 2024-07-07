@@ -9,7 +9,6 @@ def workspace():
     print(f"area: {a}")
     d = obj_cir.diametro()
     print(f"diametro: {d}")
-workspace()
 
 if __name__ == "__main__":
 
