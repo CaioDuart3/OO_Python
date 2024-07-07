@@ -18,3 +18,14 @@ def workspace():
     print(f'perimetro: {perimetro}')
 
 workspace()
+
+if __name__ == "__main__":
+
+    print("O arquivo 'testbench.py' foi envocado como programa")
+    print(f'__name__ == {__name__}')
+    workspace()
+
+else:
+
+    print("o arquivo 'testbench.py' foi envocado como modulo")
+    print(f'__name__ == {__name__}')

@@ -1,3 +1,6 @@
+
+# ! TRATAR ENTRADAS DE DADOS FORA DA TIPAGEM ESPERADA, E PASSAR TUDO PRA FLOAT
+
 class Ponto:
     def __init__(self,n):
         self.n = n
@@ -134,9 +137,18 @@ class TriangEquilatero: #triangulo Triangulo_Equilatero
         else:
             return aux
 
+    def _verificarLados(self):
+        aux = False
+        if self.a == self.b == self.c:
+            aux = True
+            return aux
+        else:
+            return aux
+
     def altura(self):
-        verificador = self._verificarTriangulo()
-        if verificador == True:
+        verificarTriang = self._verificarTriangulo()
+        verificarLado = self._verificarLados()
+        if verificarTriang == True and verificarLado == True:
             if self.a == self.b:
                 h = ((self.c/2)**2 +  self.a**2)**0.5
                 return h
@@ -150,8 +162,9 @@ class TriangEquilatero: #triangulo Triangulo_Equilatero
             return "as entradas não são válidas aqui."
 
     def area(self):
-        verificador = self._verificarTriangulo()
-        if verificador == True:
+        verificarTriang = self._verificarTriangulo()
+        verificarLado = self._verificarLados()
+        if verificarTriang == True and verificarLado:
             if self.a == self.b and self.b == self.c:
                 A = ((self.a**2)*(3**0.5))/4
                 return A
@@ -159,21 +172,35 @@ class TriangEquilatero: #triangulo Triangulo_Equilatero
             return "as entradas não são válidas aqui."
 
     def perimetro(self):
-        verificador = self._verificarTriangulo()
-        if verificador == True:
+        verificarTriang = self._verificarTriangulo()
+        verificarLados = self._verificarLados()
+        if verificarTriang == True and verificarLados == True:
             P = self.a+self.b+self.c #é a soma dos lados, só q como a=b=c, pode ser feito a*3, ao inves de a+b+c.
             return P
         else:
-            return "as entradas não são válidas."
+            return "as entradas não são válidas aqui."
         
 class TriangIsosceles(TriangEquilatero): #filho(mae) #herança, primeiro filho
     # dois lados iguais
+
+    # ! CORRRIGIR CASO DE TESTE COM ENTRADAS IGUAIS A=1,B=1,C=1
     def __init__(self,a,b,c):
         super().__init__(a,b,c)
 
+    def _verificarLados(self): #polimorfismo
+        if self.a == self.b and self.c != self.a:
+            return True
+        if self.a == self.c and self.b != self.a:
+            return True
+        if self.c == self.b and self.c != self.a:
+            return True
+        else: 
+            return False
+        
     def _altura(self):
-        verificador = self._verificarTriangulo() #encapsulamento válido da mãe pra usar no filho, se fosse privado não daria certo.
-        if verificador == True:
+        verificarTriang = self._verificarTriangulo() #encapsulamento válido da mãe pra usar no filho, se fosse privado não daria certo.
+        verificarLados = self._verificarLados()
+        if verificarTriang == True and verificarLados == True:
             if self.a == self.b:
                 h = (self.a**2 - (self.c**2)/4)**0.5
                 return h
@@ -187,8 +214,9 @@ class TriangIsosceles(TriangEquilatero): #filho(mae) #herança, primeiro filho
             return "as entradas não são válidas aqui."
 
     def _base(self):
-        verificador = self._verificarTriangulo() 
-        if verificador == True:
+        verificarTriang = self._verificarTriangulo()
+        verificarLados = self._verificarLados()
+        if verificarTriang == True and verificarLados == True:
             if self.a == self.b:
                 return self.c
             elif self.a == self.c:
@@ -199,14 +227,15 @@ class TriangIsosceles(TriangEquilatero): #filho(mae) #herança, primeiro filho
             return "as entradas não são válidas aqui."
 
     def area(self): #polimorfismo
-        verificador = self._verificarTriangulo()
-        if verificador == True:
+        verificarTriang = self._verificarTriangulo()
+        verificarLados = self._verificarLados()
+        if verificarTriang == True and verificarLados == True:
             h = self._altura()
             base =  self._base()
             A = (base*h)/2
             return A
         else:
-            return "as entradas não são válidas"
+            return "as entradas não são válidas aqui."
 
 import math
 

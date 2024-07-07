@@ -3,9 +3,9 @@ from package.maths.terms import TriangEquilatero
 def workspace():
     print('rodando triangulo equilatero...\n')
 
-    a = int(input("digite o valor do lado a: "))
-    b = int(input("digite o valor do lado b: "))
-    c = int(input("digite o valor do lado c: "))
+    a = float(input("digite o valor do lado a: "))
+    b = float(input("digite o valor do lado b: "))
+    c = float(input("digite o valor do lado c: "))
 
     obj_eq = TriangEquilatero(a,b,c)
     area = obj_eq.area()
@@ -18,3 +18,14 @@ def workspace():
     print(f'perimetro: {perimetro}')
 
 workspace()
+
+if __name__ == "__main__":
+
+    print("O arquivo 'testbench.py' foi envocado como programa")
+    print(f'__name__ == {__name__}')
+    workspace()
+
+else:
+
+    print("o arquivo 'testbench.py' foi envocado como modulo")
+    print(f'__name__ == {__name__}')

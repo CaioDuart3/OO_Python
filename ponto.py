@@ -1,7 +1,7 @@
 from package.maths.terms import Ponto
 
 def workspace():
-    n = int(input("digite a quantidade de pontos: "))
+    n = float(input("digite a quantidade de pontos: "))
     objPonto = Ponto(n)
 
     cor = objPonto.cor()
@@ -19,3 +19,14 @@ def workspace():
     print(f'novas coordenadas: {coo}')
 
 workspace()
+
+if __name__ == "__main__":
+
+    print("O arquivo 'testbench.py' foi envocado como programa")
+    print(f'__name__ == {__name__}')
+    workspace()
+
+else:
+
+    print("o arquivo 'testbench.py' foi envocado como modulo")
+    print(f'__name__ == {__name__}')

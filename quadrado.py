@@ -1,7 +1,7 @@
 from package.maths.terms import Quadrado
 
 def workspace():
-    lado = int(input("lado: "))
+    lado = float(input("lado: "))
     objQuadrado = Quadrado(lado) #quadrado recebe lado como um dado privado
 
     diagonal_quadrado = objQuadrado.diagonal()
@@ -17,3 +17,13 @@ def workspace():
 
 workspace()
 
+if __name__ == "__main__":
+
+    print("O arquivo 'testbench.py' foi envocado como programa")
+    print(f'__name__ == {__name__}')
+    workspace()
+
+else:
+
+    print("o arquivo 'testbench.py' foi envocado como modulo")
+    print(f'__name__ == {__name__}')

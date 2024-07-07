@@ -11,11 +11,22 @@ def workspace():
     
     obj_es.angulosInternos()
     area = obj_es.area()
-    altura = obj_es._altura() # ? note que está imprimindo um método protegido.
+    altura = obj_es._altura() # note que está imprimindo um método protegido.
     perimetro = obj_es.perimetro()
 
-    print(f'area: {round(area,2)}')
+    print(f'area: {area}')
     print(f'altura: {altura}')
     print(f'perimetro: {perimetro}')
 
 workspace()
+
+if __name__ == "__main__":
+
+    print("O arquivo 'testbench.py' foi envocado como programa")
+    print(f'__name__ == {__name__}')
+    workspace()
+
+else:
+
+    print("o arquivo 'testbench.py' foi envocado como modulo")
+    print(f'__name__ == {__name__}')
