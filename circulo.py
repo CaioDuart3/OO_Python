@@ -1,6 +1,8 @@
-from package.maths.terms import Circulo, coo_circulo
+from package.maths.terms import Circulo, Coo_unica
 def workspace():
-    coo = coo_circulo() #criar instancia para ser utilizada nos parametros de outra instancia, como forma de associação.
+    x = float(input("digite o x: "))
+    y = float(input("digite o y: "))
+    coo = Coo_unica(x,y) #criar instancia para ser utilizada nos parametros de outra instancia, como forma de associação.
     r = float(input("digite o raio: "))
     obj_cir = Circulo(coo.coordenadaX(),coo.coordenadaY(), r) #agregação, pois a utilizade dele vem dessa relação
     c = obj_cir.circunferencia()

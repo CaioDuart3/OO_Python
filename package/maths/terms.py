@@ -87,30 +87,28 @@ class Reta:
             return "delta X é igual 0, tente outro caso."
     
 
-    def montarTabela(self,m,b,i): #assosiação
+    def montarTabela(self,m,b,i): #assosiação    self-association
         print(f"__TABELA__\n  X | Y  ")
         for x in range(0,i):
             y = m*x + b
             print(f"  {x} | {y}  ")
 
-    def interpolar(self,m,b,x): #associação
+    def interpolar(self,m,b,x): #associação   self-association
         y = m*x+b
         return y
     
     def identificador(self):
         return '_reta'
 
-
-class Coo_circulo: #classe auxiliar  que retorna x ou y, serve para exemplo prático e simples de associação com circulo que precisa de um ponto somente
-    def __init__(self):
-        self.x = input("digite a coordenada x: ")
-        self.y = input("digite a coordenada y: ")
-
+class Coo_unica: #classe auxiliar  que retorna x ou y, serve para exemplo prático e simples de associação com circulo que precisa de um ponto somente
+    def __init__(self,x,y):
+        self.__x = x
+        self.__y = y
     def coordenadaX(self):
-        return self.x
+        return self.__x
     
-    def coordenadaY(self):
-        return self.y
+    def coordenadaY(self):  #get para pegar um atributo privado.
+        return self.__y
 
 class Circulo: 
     def __init__(self,x,y,r):
@@ -250,17 +248,22 @@ class TriangIsosceles(TriangEscaleno, TriangEquilatero): #filho(mae1,mae2) #hera
 class Quadrado:
     def __init__(self, __l):
         self.__l = __l #encapsulamento de atríbuto, privado
+
     def diagonal(self):
         d = self.__l * 2**0.5
         return d
+    
     def area(self):
         A = self.__l**2
         return A
+    
     def perimetro(self):
         p = self.__l*4
         return p
+    
     def getLado(self):
         return self.__l #get para acessar o atríbuto privado
+    
     def identificador(self):
         return '_quadrado'
 
@@ -354,23 +357,23 @@ class Hexagono(Poligono): #herança com classe abstrata, filho 2
         return '_hexagono'
 
 class TrapezioIsosceles:
-    def __init__(self,b, B, _h):
-        self.B = B
+    def __init__(self,bMenor, bMaior, _h):
+        self.bMaior = bMaior
         self._h = _h #encapsulamento de atríbuto, protegido.
-        self.b = b
+        self.bMenor = bMenor
 
     def area(self):
-        A = ((self.b + self.B)*self._h)/2
+        A = ((self.bMenor + self.bMaior)*self._h)/2
         return A
     
     def __lado(self): #não tem como retornar nada no testbench, só serve neste escopo.
-        aux = (self.B - self.b)/2
+        aux = (self.bMaior - self.bMenor)/2
         l = (self._h**2 + aux**2)**0.5
         return l
     
     def perimetro(self):
         lado = self.__lado()
-        p = lado*2 + self.b + self.B
+        p = lado*2 + self.bMenor + self.bMaior
         return p
     
     def getAltura(self):
@@ -382,13 +385,13 @@ class TrapezioIsosceles:
 class TrapezioRetangulo(TrapezioIsosceles): #herança
     #filho não precisa do construtor, pois o construtor dele é o mesmo da mãe
     def __lado(self): 
-        aux = self.B - self.b
+        aux = self.bMaior - self.bMenor
         l = (aux**2 + self._h**2)**0.5
         return l
     
-    def perimetro(self):
+    def perimetro(self): #polimorfismo
         lado = self.__lado()
-        p = self.B + self.b + lado + self._h
+        p = self.bMaior + self.bMenor + lado + self._h
         return p
 
     def identificador(self):
