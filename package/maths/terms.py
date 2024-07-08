@@ -28,7 +28,7 @@ class Ponto:
             v_x[f'X{i}'] = self.p[i][0]
         return v_x
 
-    def retornarPontosY(self,p): #associação
+    def retornarPontosY(self,p): 
         self.p = p
         v_y = {}
         for i in range(0,self.n):
@@ -53,6 +53,9 @@ class Ponto:
             # o vetor p, a ser recebido tem que ser um vetor de listas, com pontos x e y; vetores só de x ou só de y, não funcionam.
             num = int(input(f"dados os pontos: {p}\n digite a index do ponto que você quer consultar as informações: ")) 
             print(f"vetor solicitado: {p[num]}\ncor: {c[num]}")
+    
+    def identificador(self):
+        return '_ponto'
 
 class Reta: 
 
@@ -75,7 +78,7 @@ class Reta:
             inclina = self.coo[0][1]/self.coo[0][0]
             return inclina
 
-    def CoefLinear(self,m): #m é o coeficiente angular q vem de inclinação, portanto ele tem uma ASSOCIAÇÃO
+    def coefLinear(self,m): #m é o coeficiente angular q vem de inclinação, portanto ele tem uma ASSOCIAÇÃO
         self.m = m
         if type(self.m) == float:
             b = self.coo[0][1] - self.coo[0][0]* self.m
@@ -84,17 +87,21 @@ class Reta:
             return "delta X é igual 0, tente outro caso."
     
 
-    def montarTabela(self,m,b,i):
+    def montarTabela(self,m,b,i): #assosiação
         print(f"__TABELA__\n  X | Y  ")
         for x in range(0,i):
             y = m*x + b
             print(f"  {x} | {y}  ")
 
-    def interpolar(self,m,b,x):
+    def interpolar(self,m,b,x): #associação
         y = m*x+b
         return y
+    
+    def identificador(self):
+        return '_reta'
 
-class coo_circulo: #classe auxiliar  que retorna x ou y, serve para exemplo prático e simples de associação com circulo que precisa de um ponto somente
+
+class Coo_circulo: #classe auxiliar  que retorna x ou y, serve para exemplo prático e simples de associação com circulo que precisa de um ponto somente
     def __init__(self):
         self.x = input("digite a coordenada x: ")
         self.y = input("digite a coordenada y: ")
@@ -127,9 +134,8 @@ class Circulo:
         P = (teta/(2*3.1415926535))*C
         return P
 
-    def set(self):
-        self.x = float(input("digite o novo valor de X: "))
-        self.y = float(input("digite o novo valor de Y: "))
+    def identificador(self):
+        return '_circulo'
 
 class TriangEquilatero:
     #todos lados iguais
@@ -179,7 +185,9 @@ class TriangEquilatero:
             return P
         else:
             return "as entradas não são válidas aqui."
-        
+    
+    def identificador(self):
+        return '_triangulo_equilatero'
 import math
 
 class TriangEscaleno(TriangEquilatero): #neta(mãe) # lados diferentes
@@ -215,6 +223,9 @@ class TriangEscaleno(TriangEquilatero): #neta(mãe) # lados diferentes
             print(f"{maiorTeta} graus, {menorTeta} graus, {TetaMeio} graus")
         else: 
             print("as entradas não são válidas aqui.")
+    
+    def identificador(self):
+        return '_triangulo_escaleno'
 
 class TriangIsosceles(TriangEscaleno, TriangEquilatero): #filho(mae1,mae2) #herança multipla
     # dois lados iguais
@@ -231,6 +242,9 @@ class TriangIsosceles(TriangEscaleno, TriangEquilatero): #filho(mae1,mae2) #hera
             return True
         else: 
             return False
+    
+    def identificador(self):
+        return '_triangulo_isosceles'
 
 
 class Quadrado:
@@ -247,6 +261,8 @@ class Quadrado:
         return p
     def getLado(self):
         return self.__l #get para acessar o atríbuto privado
+    def identificador(self):
+        return '_quadrado'
 
 class Losango(Quadrado): #herança
     def __init__(self,__l,dMaior,dMenor):
@@ -258,6 +274,8 @@ class Losango(Quadrado): #herança
         A = (self.dMaior * self.dMenor)/2
         return A
 
+    def identificador(self):
+        return '_losango'
 class Retangulo:
     def __init__(self, a,b):
         self.a = a
@@ -289,6 +307,9 @@ class Retangulo:
         d = (self.a**2 + self.b**2)**0.5    
         return d
 
+    def identificador(self):
+        return '_retangulo'
+
 from abc import ABC, abstractmethod 
 
 class Poligono(ABC): 
@@ -304,6 +325,9 @@ class Poligono(ABC):
         p = self.i*self.a
         return p
 
+    def identificador(self):
+        return '_poligono'
+
 class Pentagono(Poligono): #herança com classe abstrata, filho 1
     def __init__(self,a):
         super().__init__(a)
@@ -314,6 +338,9 @@ class Pentagono(Poligono): #herança com classe abstrata, filho 1
         A = (5*self.a**2)/(4*aux)
         return A
 
+    def identificador(self):
+        return '_pentagono'
+
 class Hexagono(Poligono): #herança com classe abstrata, filho 2
     def __init__(self,a):
         super().__init__(a)
@@ -322,6 +349,9 @@ class Hexagono(Poligono): #herança com classe abstrata, filho 2
     def area(self): #polimorfismo
         A = ((3*self.a**2)*3**0.5)/2
         return A
+
+    def identificador(self):
+        return '_hexagono'
 
 class TrapezioIsosceles:
     def __init__(self,b, B, _h):
@@ -346,6 +376,9 @@ class TrapezioIsosceles:
     def getAltura(self):
         return self._h
 
+    def identificador(self):
+        return '_trapezio_isosceles'
+    
 class TrapezioRetangulo(TrapezioIsosceles): #herança
     #filho não precisa do construtor, pois o construtor dele é o mesmo da mãe
     def __lado(self): 
@@ -357,3 +390,25 @@ class TrapezioRetangulo(TrapezioIsosceles): #herança
         lado = self.__lado()
         p = self.B + self.b + lado + self._h
         return p
+
+    def identificador(self):
+        return '_trapezio_retangulo'
+    
+class FigurasGeometricas: #AGREGAÇÃO, pois vai possuir formas geometricas 
+    def __init__(self):
+        self.formas = {}
+        self.count = 0
+    
+    def inserirForma(self, instancia): #set
+        self.count+=1
+        self.formas[str(self.count) + instancia.identificador()] = instancia
+    
+    def removerForma(self, key):
+        del self.formas[key]
+
+    def listarFormas(self): #get
+        for instancia in self.formas.keys():
+            print(instancia)
+
+    def retornarForma(self,key):
+        return self.formas[key]

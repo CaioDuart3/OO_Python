@@ -4,7 +4,7 @@ def workspace():
 
     obj_Reta = Reta(n) #instanciação
     m = obj_Reta.inclinacao() #
-    b = obj_Reta.CoefLinear(obj_Reta.inclinacao()) #associação.
+    b = obj_Reta.coefLinear(obj_Reta.inclinacao()) #associação.
 
     print(f"m: {m}")
     print(f"b: {b}")
@@ -12,7 +12,7 @@ def workspace():
     i = int(input("quantidade de iterações:"))
     obj_Reta.montarTabela(m,b,i)
     
-    y = obj_Reta.interpolar(m,b,i)
+    y = obj_Reta.interpolar(obj_Reta.inclinacao(),b,i) #associação, pois usa a inclinação, mas não chega a possui-la
     print(f'interpolar, y = {y}')
 
 

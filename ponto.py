@@ -15,7 +15,7 @@ def workspace():
     vetor_x = objPonto.retornarPontosX(coo)
     vetor_y = objPonto.retornarPontosY(coo)
     print(f'{vetor_x}')
-    print(f'{vetor_y}')
+    print(f'{type(vetor_y)}')
     print(f'novas coordenadas: {coo}')
 
     objPonto.exibirPonto(coo,cor)

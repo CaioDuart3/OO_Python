@@ -1,4 +1,4 @@
-from package.maths.terms import Losango
+from package.maths.terms import Losango, FigurasGeometricas
 
 def workspace():
     lado = float(input("digite o lado do losango: "))
@@ -12,6 +12,16 @@ def workspace():
 
     print(f"area: {area}")
     print(f"perimetro: {perimetro}")
+
+    objFiguras = FigurasGeometricas()
+    objFiguras.inserirForma(objLosango)
+    objFiguras.listarFormas()
+
+    key = input("key: ")
+    objFiguras.removerForma(key)
+    print('\n')
+    objFiguras.listarFormas()
+
 
 if __name__ == "__main__":
 
