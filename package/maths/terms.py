@@ -109,6 +109,9 @@ class Coo_unica: #classe auxiliar  que retorna x ou y, serve para exemplo práti
     
     def coordenadaY(self):  #get para pegar um atributo privado.
         return self.__y
+    
+    def identificador(self):
+        return '_coordenada_unica'
 
 class Circulo: 
     def __init__(self,x,y,r):
@@ -412,6 +415,6 @@ class FigurasGeometricas: #AGREGAÇÃO, pois vai possuir formas geometricas
     def listarFormas(self): #get
         for instancia in self.formas.keys():
             print(instancia)
-
+            
     def retornarForma(self,key):
         return self.formas[key]
