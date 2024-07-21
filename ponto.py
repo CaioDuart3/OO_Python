@@ -4,9 +4,7 @@ def workspace():
     n = int(input("digite a quantidade de pontos: "))
     objPonto = Ponto(n)
 
-    cor = objPonto.cor()
     coo = objPonto.coordenada()
-    print(f"cores: {cor}\n")
     print(f"coordenadas: {coo}\n")
 
     objPonto.setPontosX(coo) 
@@ -15,10 +13,10 @@ def workspace():
     vetor_x = objPonto.retornarPontosX(coo)
     vetor_y = objPonto.retornarPontosY(coo)
     print(f'{vetor_x}')
-    print(f'{type(vetor_y)}')
+    print(f'{vetor_y}')
     print(f'novas coordenadas: {coo}')
 
-    objPonto.exibirPonto(coo,cor)
+    objPonto.detalhes()
 
 if __name__ == "__main__":
 

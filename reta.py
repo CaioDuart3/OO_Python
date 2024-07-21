@@ -5,9 +5,11 @@ def workspace():
     obj_Reta = Reta(n) #instanciação
     m = obj_Reta.inclinacao() #
     b = obj_Reta.coefLinear(obj_Reta.inclinacao()) #associação.
+    d = obj_Reta.distancia()
 
     print(f"m: {m}")
     print(f"b: {b}")
+    print(f"distância: {d}")
 
     i = int(input("quantidade de iterações:"))
     obj_Reta.montarTabela(m,b,i)

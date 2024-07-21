@@ -2,7 +2,9 @@ from package.maths.terms import Hexagono
 
 def workspace():
     lado = float(input("digite o lado do hexagono: "))
-    objHexagono = Hexagono(lado)
+    x = float(input("x: "))
+    y = float(input("y: "))
+    objHexagono = Hexagono(lado,x,y)
 
     area = objHexagono.area()
     perimetro = objHexagono.perimetro()

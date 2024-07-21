@@ -6,8 +6,10 @@ def workspace():
     a = float(input("digite o valor do lado a: "))
     b = float(input("digite o valor do lado b: "))
     c = float(input("digite o valor do lado c: "))
+    x = float(input("x: "))
+    y = float(input("y: "))
 
-    obj_eq = TriangEquilatero(a,b,c)
+    obj_eq = TriangEquilatero(a,b,c,x,y)
     area = obj_eq.area()
     altura = obj_eq.altura()
     perimetro = obj_eq.perimetro()

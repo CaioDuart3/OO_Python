@@ -6,8 +6,9 @@ def workspace():
     a = float(input("digite o valor do lado a: "))
     b = float(input("digite o valor do lado b: "))
     c = float(input("digite o valor do lado c: "))
-
-    obj_es = TriangEscaleno(a,b,c)
+    x = float(input("x: "))
+    y = float(input("y: "))
+    obj_es = TriangEscaleno(a,b,c,x,y)
     
     obj_es.angulosInternos()
     area = obj_es.area()

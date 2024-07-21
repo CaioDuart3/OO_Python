@@ -4,7 +4,7 @@ def workspace():
     y = float(input("digite o y: "))
     coo = Coo_unica(x,y) #criar instancia para ser utilizada nos parametros de outra instancia, como forma de associação.
     r = float(input("digite o raio: "))
-    obj_cir = Circulo(coo.coordenadaX(),coo.coordenadaY(), r) #agregação, pois a utilizade dele vem dessa relação
+    obj_cir = Circulo(coo.getX,coo.getY, r) #agregação, pois a utilizade dele vem dessa relação
     c = obj_cir.circunferencia()
     print(f"circunferencia: {c}")
     a =obj_cir.areaCirculo()

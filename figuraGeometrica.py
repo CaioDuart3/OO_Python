@@ -1,4 +1,5 @@
-from package.maths.terms import FigurasGeometricas, Coo_unica, Quadrado
+from package.maths.useropts import FigurasGeometricas
+from package.maths.terms import Coo_unica, Quadrado
 
 def workspace():
     formas = FigurasGeometricas()
@@ -21,7 +22,9 @@ def workspace():
             print('coordenada unica criada. \n')
         elif escolha == 2:
             lado = float(input("lado: "))
-            quadrado = Quadrado(lado)
+            x = float(input("x: "))
+            y = float(input("y: "))
+            quadrado = Quadrado(lado,x,y)
             formas.inserirForma(quadrado)
             print('quadrado criado. \n')
         elif escolha == 3:

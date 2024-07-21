@@ -1,27 +1,19 @@
-from package.maths.terms import Losango, FigurasGeometricas
+from package.maths.terms import Losango
 
 def workspace():
     lado = float(input("digite o lado do losango: "))
     diagonal_menor = float(input("digite a diagonal menor: "))
     diagonal_maior = float(input("digite a diagonal maior: "))
+    x = float(input("x: "))
+    y = float(input("y: "))
 
-    objLosango = Losango(lado, diagonal_maior, diagonal_menor)
+    objLosango = Losango(lado, diagonal_maior, diagonal_menor,x,y)
 
     area = objLosango.area()
     perimetro = objLosango.perimetro()
 
     print(f"area: {area}")
     print(f"perimetro: {perimetro}")
-
-    objFiguras = FigurasGeometricas()
-    objFiguras.inserirForma(objLosango)
-    objFiguras.listarFormas()
-
-    key = input("key: ")
-    objFiguras.removerForma(key)
-    print('\n')
-    objFiguras.listarFormas()
-
 
 if __name__ == "__main__":
 

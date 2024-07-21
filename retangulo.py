@@ -1,9 +1,11 @@
 from package.maths.terms import Retangulo
 
 def workspace():
-    e1 = float(input("e1: "))
-    e2 = float(input("e2: "))
-    obj_r = Retangulo(e1,e2)
+    c = float(input("e1: "))
+    h = float(input("e2: "))
+    x = float(input("x: "))
+    y = float(input("y: "))
+    obj_r = Retangulo(c,h,x,y)
     a = obj_r.area()
     p = obj_r.perimetro()
     d = obj_r.diagonal()

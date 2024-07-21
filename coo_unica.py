@@ -5,8 +5,8 @@ def workspace():
     y = float(input("digite o valor de y: "))
 
     objCoo = Coo_unica(x,y)
-    coo_x = objCoo.coordenadaX()
-    coo_y = objCoo.coordenadaY()
+    coo_x = objCoo.getX
+    coo_y = objCoo.getY
     print(f'x digitado: {coo_x}')
     print(f'y digitado: {coo_y}')
 

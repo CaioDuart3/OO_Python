@@ -6,8 +6,9 @@ def workspace():
     a = float(input("digite o valor do lado a: "))
     b = float(input("digite o valor do lado b: "))
     c = float(input("digite o valor do lado c: "))
-
-    obj_is = TriangIsosceles(a,b,c)
+    x = float(input("x: "))
+    y = float(input("y: "))
+    obj_is = TriangIsosceles(a,b,c,x,y)
     
     area = obj_is.area()
     altura = obj_is.altura()
