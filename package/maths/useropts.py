@@ -77,8 +77,9 @@ class Menu:
             print('--'*50+'\n')
             print('Escolha uma das opções para consultar.')
             while True:
-                print('1- Verificar interferência.')
-                print('2- Verificar formas geométricas criadas e seus detalhes.') #todo, existe uma classe feita pra isso
+                
+                print('1- Verificar formas geométricas criadas e seus detalhes.') 
+                print('2- Verificar interferência.')
                 print('3- Verificar relação de ponto com reta.')
                 print('4- Deletar forma geométrica criada.')
                 print('5- Voltar para o menu inicial.')
@@ -88,7 +89,23 @@ class Menu:
                 print(' resultado de escolha. ',end='')
                 print('=='*25)
                 
+
                 if escolha == '1':
+                    self.forma.listarFormas()
+                    print('--'*50+'\n')
+                    while True:
+                        try:
+                            escolha = input('digite a forma geométrica que você deseja visualizar melhor: ')
+                            if escolha.upper() == 'EXIT':
+                                break
+                            else:
+                                forma_temp = self.forma.retornarForma(escolha)
+                                forma_temp.detalhes()
+                                break
+                        except KeyError:
+                            print('Escreva corretamente o nome da forma geométrica que você deseja verificar OU digite "EXIT" para voltar ao menu.')
+                            
+                elif escolha == '2':
                     while True:
                         try:
                             print('Digite a coordenada x e y do ponto que você deseja verificar se está contido em uma forma geométrica.')
@@ -108,21 +125,6 @@ class Menu:
                             else:
                                 forma_temp = self.forma.retornarForma(escolha)
                                 forma_temp.verificar_interferencia(x_p,y_p)
-                                break
-                        except KeyError:
-                            print('Escreva corretamente o nome da forma geométrica que você deseja verificar OU digite "EXIT" para voltar ao menu.')
-
-                elif escolha == '2':
-                    self.forma.listarFormas()
-                    print('--'*50+'\n')
-                    while True:
-                        try:
-                            escolha = input('digite a forma geométrica que você deseja vizualizar melhor: ')
-                            if escolha.upper() == 'EXIT':
-                                break
-                            else:
-                                forma_temp = self.forma.retornarForma(escolha)
-                                forma_temp.detalhes()
                                 break
                         except KeyError:
                             print('Escreva corretamente o nome da forma geométrica que você deseja verificar OU digite "EXIT" para voltar ao menu.')
@@ -209,15 +211,15 @@ class Menu:
             print('=='*25)
             if escolha == '1':
                 a = objCirculo.areaCirculo()
-                print(f'area: {a}')
+                print(f'Área: {a}')
 
             elif escolha == '2':
                 d = objCirculo.diametro()
-                print(f'diametro: {d}')
+                print(f'Diãmetro: {d}')
                 
             elif escolha == '3':
                 c = objCirculo.circunferencia()
-                print(f'circunferencia: {c}')
+                print(f'Circunferência: {c}')
             elif escolha == '4':
                 print('Voltando para o menu...')
                 print('=='*50)
@@ -359,7 +361,7 @@ class Menu:
             if escolha == '1':
                 print(f'Inclinação da reta: {m}')
             elif escolha == '2':
-                print(f'Coeficiente Linear: {b}')
+                print(f'Coeficiente linear: {b}')
             elif escolha == '3':
                 while True:
                     try:
@@ -777,11 +779,11 @@ class Menu:
 
             elif option == '5':
                 print('Criando triângulo isoscéles...\n')
-                self.tb_triang_isos() #todo
+                self.tb_triang_isos() 
                 
             elif option == '6':
                 print('Criando triângulo escaleno...\n')
-                self.tb_triang_esca() #todo
+                self.tb_triang_esca() 
             
             elif option =='7':
                 print('Criando quadrado...\n')
@@ -813,7 +815,7 @@ class Menu:
         while(True):
             print('Escolha uma opção:')
             print('1- Criar forma geométrica.')
-            print('2- Verificar interferencias.')
+            print('2- Verificar formas geométricas.')
             print('3- Sair.')
             escolha = input("digite o numero da sua escolha: ")
             print('\n')
@@ -823,6 +825,7 @@ class Menu:
             elif escolha == '2':
                 self.crash()
             elif escolha == '3':
+                print('encerrando sistema.')
                 break
             else:
                 print('digite uma opção válida.')

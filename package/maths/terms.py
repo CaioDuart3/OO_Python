@@ -61,7 +61,7 @@ class Ponto:
 
     def detalhes(self):
             for num in range(0,self.n):
-                print(f"ponto {num+1} - coordenada: {self.temp[num]}")
+                print(f"Ponto {num+1} - Coordenada: {self.temp[num]}")
 
     def identificador(self):
         return '_ponto'
@@ -130,7 +130,7 @@ class Reta:
         d = self.distancia()
         m = self.inclinacao()
         b = self.b
-        print(f'\nquantidade de pontos para a reta: {self.n}\ndistância do segmento de reta: {d}\ninclinação da reta: {m}\ncoeficiente linear: {b}')
+        print(f'\nQuantidade de pontos para a reta: {self.n}\nDistância do segmento de reta: {d}\nInclinação da reta: {m}\nCoeficiente linear: {b}')
     
     def identificador(self):
         return '_reta'
@@ -184,7 +184,7 @@ class Circulo:
         c= self.circunferencia()
         d = self.diametro()
         a = self.areaCirculo()
-        print(f'\nraio: {self.r}\ncircunferência: {c}\ndiametro: {d}\nárea: {a}\ncentro: ({self.x},{self.y})')
+        print(f'\nRaio: {self.r}\nCircunferência: {c}\nDiâmetro: {d}\nÁrea: {a}\nCentro: ({self.x},{self.y})')
         
     def identificador(self):
         return '_circulo'
@@ -269,7 +269,7 @@ class TriangEquilatero:
         a = self.area()
         p = self.perimetro()
         h = self.altura()
-        print(f'\nlados: A:{self.a} ; B:{self.b} ; C:{self.c}\nárea: {a}\nperímetro: {p}\naltura: {h}\ncentro: ({self.x},{self.y})')
+        print(f'\nLados: A:{self.a} ; B:{self.b} ; C:{self.c}\nÁrea: {a}\nPerímetro: {p}\nAltura: {h}\nCentro: ({self.x},{self.y})')
         
     def identificador(self):
         return '_triangulo_equilatero'
@@ -365,7 +365,7 @@ class Quadrado:
         d = self.diagonal()
         a = self.area()
         p = self.perimetro()
-        print(f'\nlado: {self._l}\ndiagonal: {d}\nárea: {a}\nperímetro: {p}\ncentro: ({self.x},{self.y})')
+        print(f'\nLado: {self._l}\nDiagonal: {d}\nÁrea: {a}\nPerímetro: {p}\nCentro: ({self.x},{self.y})')
         
     def identificador(self):
         return '_quadrado'
@@ -398,7 +398,7 @@ class Losango(Quadrado): #herança
         dMe = self.dMenor
         a = self.area()
         p = self.perimetro()
-        print(f'\nlado: {self._l}\ndiagonal maior: {dMa}\ndiagonal menor: {dMe}\nárea: {a}\nperímetro: {p}\ncentro: ({self.x},{self.y})')
+        print(f'\nLado: {self._l}\nDiagonal maior: {dMa}\nDiagonal menor: {dMe}\nÁrea: {a}\nPerímetro: {p}\nCentro: ({self.x},{self.y})')
         
     def identificador(self):
         return '_losango'
@@ -450,7 +450,7 @@ class Retangulo:
         d = self.diagonal()
         A = self.area()
         p = self.perimetro()
-        print(f'\nlargura: {self.b}\naltura: {self.b}\ndiagonal: {d}\nárea: {A}\nperímetro: {p}\ncentro: ({self.x},{self.y})')
+        print(f'\nLargura: {self.b}\nAltura: {self.b}\nDiagonal: {d}\nÁrea: {A}\nPerímetro: {p}\nCentro: ({self.x},{self.y})')
         
     def identificador(self):
         return '_retangulo'
@@ -527,7 +527,7 @@ class Pentagono(Poligono): #herança com classe abstrata, filho 1
         p = self.perimetro()
         A = self.area()
         r = self.raio()
-        print(f'\nlado: {self.a}\nraio: {r}\nárea: {A}\nperímetro: {p}\ncentro: ({self.x},{self.y})')
+        print(f'\nLado: {self.a}\nRaio: {r}\nÁrea: {A}\nPerímetro: {p}\nCentro: ({self.x},{self.y})')
 
     def identificador(self):
         return '_pentagono'
@@ -580,7 +580,7 @@ class Hexagono(Poligono): #herança com classe abstrata, filho 2
     def detalhes(self):
         p = self.perimetro()
         A = self.area()
-        print(f'\nlado: {self.a}\nárea: {A}\nperímetro: {p}\ncentro: ({self.x},{self.y})')
+        print(f'\nLado: {self.a}\nÁrea: {A}\nPerímetro: {p}\nCentro: ({self.x},{self.y})')
 
 
     def identificador(self):
