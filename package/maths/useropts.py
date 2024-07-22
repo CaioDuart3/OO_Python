@@ -398,7 +398,7 @@ class Menu:
                 if A == B == C:
                     break
                 else:
-                    print("as entradas não são válidas. Note que os lados devem ser iguais para este triângulo, volte e reescreva os lados.")
+                    print("as entradas não são válidas. Note que os lados devem ser iguais para este triângulo,\nvolte e reescreva os lados, exemplo: A=1;B=1;C=1")
             except ValueError:
                 print('Entrada inválida. Digite apenas números do tipo flutante.')
         
@@ -445,10 +445,10 @@ class Menu:
                 if ((A == B and C != A) or (A == C and B != A) or (C == B and C != A)) and ((A + B) > C and (A + C) > B and (B + C) > A):
                     break
                 else:
-                    print("as entradas não são válidas. Os valores não formam um triângulo isoscéles. volte e reescreva os lados.")
+                    print("as entradas não são válidas. Os valores não formam um triângulo isoscéles.\nvolte e reescreva os lados, exemplo: A=2 ;B=2;C=3")
             except ValueError:
                 print('Entrada inválida. Digite apenas números do tipo flutante.')
-        
+
         objTriang_is = TriangIsosceles(A,B,C,x,y)
         self.forma.inserirForma(objTriang_is)
 
@@ -491,7 +491,7 @@ class Menu:
                 if (A != B != C) and ((A + B) > C and (A + C) > B and (B + C) > A):
                     break
                 else:
-                    print("as entradas não são válidas. Os valores não formam um triângulo escaleno, volte e reescreva os lados.")
+                    print("as entradas não são válidas. Os valores não formam um triângulo escaleno,\nvolte e reescreva os lados, exemplo: A=5 ;B=6;C=8")
             except ValueError:
                 print('Entrada inválida. Digite apenas números do tipo flutante.')
         
