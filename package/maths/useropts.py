@@ -370,8 +370,6 @@ class Menu:
                         break
                     except:
                         print('Entrada inválida. Digite apenas números do tipo flutuante.')
-                print(type(m))
-                print(type(b))
                 if type(m) == float and type(b) == float:
                     y = objReta.interpolar(m,b,x)
                     print(f'y = m * x + b\ny = ({m}) * ({x}) + ({b})\ny = {y}')
