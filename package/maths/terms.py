@@ -346,7 +346,6 @@ class Quadrado:
         pontos = {'ponto1':[self.x-self._l/2,self.y+self._l/2], 'ponto2': [self.x+self._l/2, self.y+self._l/2],
                 'ponto3':[self.x-self._l/2,self.y-self._l/2], 'ponto4':[self.x + self._l/2, self.y - self._l/2]}
         
-        print(pontos)
         if pontos['ponto1'][0] < x_p <= pontos['ponto4'][0] and pontos['ponto4'][1] <= y_p <= pontos['ponto1'][1]:
             print('este ponto está contido neste quadrado.')
             
@@ -483,7 +482,8 @@ class Pentagono(Poligono): #herança com classe abstrata, filho 1
     def __init__(self,a,x,y):
         self.a = a
         self.i = 5
-
+        self.x = x
+        self.y = y
     def area(self): #polimorfismo
         apotema = self.a / (2 * tan(pi / 5))
         
@@ -506,12 +506,13 @@ class Pentagono(Poligono): #herança com classe abstrata, filho 1
             'ponto4': [self.x + R*cos(6*pi/self.i), self.y + R*sin(6*pi/self.i)],
             'ponto5': [self.x + R*cos(8*pi/self.i), self.y + R*sin(8*pi/self.i)]
         }
-        ponto1 = Coo_unica(pontos['ponto1'][0], pontos['ponto2'][1])
+        ponto1 = Coo_unica(pontos['ponto1'][0], pontos['ponto1'][1])
         ponto2 = Coo_unica(pontos['ponto2'][0], pontos['ponto2'][1])
         ponto3 = Coo_unica(pontos['ponto3'][0], pontos['ponto3'][1])
         ponto4 = Coo_unica(pontos['ponto4'][0], pontos['ponto4'][1])
         ponto5 = Coo_unica(pontos['ponto5'][0], pontos['ponto5'][1])
         pontoN = Coo_unica(x_p,y_p)
+        centro = Coo_unica(self.x , self.y)
         
         areaN1 = self._area_aux(ponto1,ponto2,pontoN)
         areaN2 = self._area_aux(ponto2,ponto3,pontoN)
@@ -519,12 +520,19 @@ class Pentagono(Poligono): #herança com classe abstrata, filho 1
         areaN4 = self._area_aux(ponto4,ponto5,pontoN)
         areaN5 = self._area_aux(ponto5,ponto1,pontoN)
 
-        area = self.area()
+        area1 = self._area_aux(ponto1,ponto2,centro)
+        area2 = self._area_aux(ponto2,ponto3,centro)
+        area3 = self._area_aux(ponto3,ponto4,centro)
+        area4 = self._area_aux(ponto4,ponto5,centro)
+        area5 = self._area_aux(ponto5,ponto1,centro)
+
+        sumArea = area1 + area2 + area3 + area4 + area5
         sumAreaN = areaN1 + areaN2 + areaN3 + areaN4 + areaN5
-        if area == sumAreaN:
-            print('este ponto está contido neste retangulo.')
+
+        if sumArea == sumAreaN:
+            print('este ponto está contido neste pentágono.')
         else:
-            print('este ponto não está contido neste retangulo.')
+            print('este ponto não está contido neste pentágono.')
 
     def detalhes(self):
         p = self.perimetro()
@@ -564,18 +572,26 @@ class Hexagono(Poligono): #herança com classe abstrata, filho 2
         ponto5 = Coo_unica(pontos['ponto5'][0], pontos['ponto5'][1])
         ponto6 = Coo_unica(pontos['ponto6'][0], pontos['ponto6'][1])
         pontoN = Coo_unica(x_p,y_p)
-
+        centro = Coo_unica(self.x, self.y)
+        
         areaN1 = self._area_aux(ponto1,ponto2,pontoN)
         areaN2 = self._area_aux(ponto2,ponto3,pontoN)
         areaN3 = self._area_aux(ponto3,ponto4,pontoN)
         areaN4 = self._area_aux(ponto4,ponto5,pontoN)
         areaN5 = self._area_aux(ponto5,ponto6,pontoN)
         areaN6 = self._area_aux(ponto6,ponto1,pontoN)
-        
-        
-        areaTotal = self.area()
+
+        area1 = self._area_aux(ponto1,ponto2,centro)
+        area2 = self._area_aux(ponto2,ponto3,centro)
+        area3 = self._area_aux(ponto3,ponto4,centro)
+        area4 = self._area_aux(ponto4,ponto5,centro)
+        area5 = self._area_aux(ponto5,ponto6,centro)
+        area6 = self._area_aux(ponto6,ponto1,centro)
+
+        sumArea = area1 + area2 + area3 + area4 + area5 + area6
         sumAreaN = areaN1 + areaN2 + areaN3 + areaN4 + areaN5 + areaN6
-        if areaTotal == sumAreaN:
+        
+        if sumArea == sumAreaN:
             print('este ponto está contido neste hexágono.')
         else:
             print('este ponto não está contido neste hexágono.')
@@ -630,8 +646,3 @@ class TrapezioRetangulo(TrapezioIsosceles): #herança
     def identificador(self):
         return '_trapezio_retangulo'
     
-# todo mudanças feitas:
-#exclusão do metodo cor da class ponto.
-#arquivos testbenches de ponto e de quadrado devem ser refeitos.
-#colocar tudo pro primeiro quadrante
-#adicionar property e outros ngcs desses ai

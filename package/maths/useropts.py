@@ -363,16 +363,21 @@ class Menu:
             elif escolha == '2':
                 print(f'Coeficiente linear: {b}')
             elif escolha == '3':
+
                 while True:
                     try:
                         x = float(input('digite o valor de x: '))
                         break
                     except:
                         print('Entrada inválida. Digite apenas números do tipo flutuante.')
-                        
-                y = objReta.interpolar(m,b,x)
-                print(f'y = m * x + b\ny = ({m}) * ({x}) + ({b})\ny = {y}')
-            
+                print(type(m))
+                print(type(b))
+                if type(m) == float and type(b) == float:
+                    y = objReta.interpolar(m,b,x)
+                    print(f'y = m * x + b\ny = ({m}) * ({x}) + ({b})\ny = {y}')
+                else:
+                    print('seus pontos criaram uma reta vertical. aonde y pertence a qualquer valor dos reais reais.')
+
             elif escolha == '4':
                 print(f'Tamanho do segmento de reta: {d}')
             
