@@ -11,11 +11,14 @@ class Ponto:
                 try:
                     X = float(input(f"digite a coordenada de X{i}: "))
                     Y = float(input(f"digite a coordenada de Y{i}: "))
-                    v=[]
-                    v.append(X)
-                    v.append(Y)
-                    coo_ponto.append(v)
-                    break
+                    v = [X,Y]
+                    
+                    if(v in coo_ponto):
+                        print('\nVocê repetiu um ponto. Digite valores diferentes.\n')
+                    
+                    else:
+                        coo_ponto.append(v)
+                        break
                 except ValueError:
                     print('Entrada inválida. Digite apenas números do tipo flutuante.')
         self.temp = coo_ponto
@@ -58,7 +61,7 @@ class Ponto:
                     print('digite um valor do tipo flutuante.')
             p[i].pop(0)
             p[i].insert(0,nX)
-
+            
     def detalhes(self):
             for num in range(0,self.n):
                 print(f"Ponto {num+1} - Coordenada: {self.temp[num]}")
@@ -74,8 +77,8 @@ class Reta:
         self.b = 0
     def inclinacao(self):
         if len(self.coo) >=2:
-            deltaX = self.coo[1][0]-self.coo[0][0]
-            deltaY = self.coo[1][1]-self.coo[0][1]
+            deltaX = self.coo[self.n-1][0]-self.coo[0][0]
+            deltaY = self.coo[self.n-1][1]-self.coo[0][1]
             if deltaX != 0:
                 inclina = deltaY/deltaX
                 return inclina
