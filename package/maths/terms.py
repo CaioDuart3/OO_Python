@@ -62,6 +62,10 @@ class Ponto:
             p[i].pop(0)
             p[i].insert(0,nX)
             
+    def verificar_interferencia(self,x_p, y_p):
+
+        print('\no ponto não é válido para esta função, utilize a opção "Distância entre dois pontos" para conferir sobreposições.')
+
     def detalhes(self):
             for num in range(0,self.n):
                 print(f"Ponto {num+1} - Coordenada: {self.temp[num]}")
