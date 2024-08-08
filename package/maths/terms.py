@@ -80,14 +80,29 @@ class Reta:
         self.coo = self.objPonto.coordenada()
         self.b = 0
     def inclinacao(self):
+        #regressão linear - método dos minímos quadrados.
         if len(self.coo) >=2:
-            deltaX = self.coo[self.n-1][0]-self.coo[0][0]
-            deltaY = self.coo[self.n-1][1]-self.coo[0][1]
-            if deltaX != 0:
-                inclina = deltaY/deltaX
-                return inclina
+            sumX = 0
+            sumX2 = 0
+            sumY = 0
+            sumXY = 0
+            for coordenadas in self.coo:
+                x = coordenadas[0]
+                y = coordenadas[1]
+                sumX += x
+                sumY += y
+                sumX2 += x**2
+                sumXY += x*y
+
+            denominador = sumX**2-self.n*sumX2
+            numerador = sumX*sumY-self.n*sumXY
+
+            m = numerador/denominador
+
+            if denominador != 0:
+                return m
             else:
-                return 'delta X é igual 0, tente outro caso.'
+                return 'os pontos não tornam esta regressão linear possível.'
             
         elif len(self.coo) == 1:
             inclina = self.coo[0][1]/self.coo[0][0]
@@ -106,13 +121,22 @@ class Reta:
         return pontoN
 
     def coefLinear(self,m): #m é o coeficiente angular q vem de inclinação, portanto ele tem uma ASSOCIAÇÃO
+        #regressão linear - mmq
         self.m = m
+        sumX = 0
+        sumY = 0
+        for coordenadas in self.coo:
+            x = coordenadas[0]
+            y = coordenadas[1]
+            sumX += x
+            sumY += y
+        
         if type(self.m) == float:
-            b = self.coo[0][1] - self.coo[0][0]* self.m
+            b = (sumY - self.m*sumX)/self.n
             self.b = b
             return b
         else:
-            return "delta X é igual 0, tente outro caso."
+            return 'os pontos não tornam esta regressão linear possível.'
 
     def montarTabela(self,m,b,i): #assosiação    self-association
         print(f"__TABELA__\n  X | Y  ")
